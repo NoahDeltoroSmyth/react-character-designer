@@ -9,11 +9,26 @@ export default function Main() {
   const [head, setHead] = useState('');
   const [middle, setMiddle] = useState('');
   const [bottom, setBottom] = useState('');
+  const [phrase, setPhrase] = useState('');
+  const [phraseList, setPhraseList] = useState([]);
 
   return (
     <main>
       <Preview />
-      <Editor {...{ head, setHead, middle, setMiddle, bottom, setBottom }} />
+      <Editor
+        {...{
+          head,
+          setHead,
+          middle,
+          setMiddle,
+          bottom,
+          setBottom,
+          phrase,
+          setPhrase,
+          phraseList,
+          setPhraseList,
+        }}
+      />
     </main>
   );
 }
