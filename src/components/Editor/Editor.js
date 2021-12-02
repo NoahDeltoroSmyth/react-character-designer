@@ -12,6 +12,9 @@ export default function Editor({
   phrase,
   setPhrase,
   setPhraseList,
+  setHeadCount,
+  setMiddleCount,
+  setBottomCount,
 }) {
   const handleClick = () => {
     setPhraseList((prevState) => [...prevState, phrase]);
@@ -20,39 +23,45 @@ export default function Editor({
 
   const handleSetHead = (e) => {
     setHead(e.target.value);
+    setHeadCount((prevState) => prevState + 1);
   };
-
   const handleSetMiddle = (e) => {
     setMiddle(e.target.value);
+    setMiddleCount((prevState) => prevState + 1);
   };
-
   const handleSetBottom = (e) => {
     setBottom(e.target.value);
+    setBottomCount((prevState) => prevState + 1);
   };
 
   return (
-    <div>
+    <div className="editor">
       <div className="head">
-        <select value={head} onChange={(e) => setHead(e.target.value)}>
-          <option value="bird-head">Bird</option>
+        <select value={head} onChange={handleSetHead}>
+          <option value="bird">Bird</option>
           <option value="duck">Duck</option>
           <option value="dog">Dog</option>
           <option value="horse">Horse</option>
         </select>
       </div>
-      <select value={middle} onChange={handleSetMiddle}>
-        <option value="blue">Blue</option>
-        <option value="fancy">Fancy</option>
-        <option value="pink">Pink</option>
-        <option value="red">Red</option>
-      </select>
-      <select value={bottom} onChange={(e) => setBottom(e.target.value)}>
-        <option value="single-leg">Single Leg</option>
-        <option value="white-pants">White Pants</option>
-        <option value="blue-jeans">Blue Jeans</option>
-      </select>
-      <input value={phrase} onChange={handleSetBottom} type="text"></input>
-      <button onClick={handleClick}>Add</button>
+      <div className="middle">
+        <select value={middle} onChange={handleSetMiddle}>
+          <option value="blue">Blue</option>
+          <option value="dress">Dress</option>
+          <option value="pink">Pink</option>
+        </select>
+      </div>
+      <div className="bottom">
+        <select value={bottom} onChange={handleSetBottom}>
+          <option value="leg">Single Leg</option>
+          <option value="white">White Pants</option>
+          <option value="blue">Blue Pants</option>
+        </select>
+      </div>
+      <div className="catch-phrase">
+        <input type="text" value={phrase} onChange={(e) => setPhrase(e.target.value)}></input>
+        <button onClick={handleClick}>Add</button>
+      </div>
     </div>
   );
 }

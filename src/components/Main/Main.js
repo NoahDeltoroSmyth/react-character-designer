@@ -11,10 +11,13 @@ export default function Main() {
   const [bottom, setBottom] = useState('');
   const [phrase, setPhrase] = useState('');
   const [phraseList, setPhraseList] = useState([]);
+  const [headCount, setHeadCount] = useState(0);
+  const [middleCount, setMiddleCount] = useState(0);
+  const [bottomCount, setBottomCount] = useState(0);
 
   return (
     <main>
-      <Preview />
+      <Preview {...{ head, setHead, middle, setMiddle, bottom, setBottom }} />
       <Editor
         {...{
           head,
@@ -27,8 +30,15 @@ export default function Main() {
           setPhrase,
           phraseList,
           setPhraseList,
+          setHeadCount,
+          setMiddleCount,
+          setBottomCount,
         }}
       />
+      {!!headCount && <p>You have changed the head {headCount}</p>}
+      {!!middleCount && <p>You have changed the middle {middleCount}</p>}
+      {!!bottomCount && <p>You have changed the bottom {bottomCount}</p>}
+      {!!phraseList && <p>{phraseList}</p>}
     </main>
   );
 }
