@@ -1,15 +1,19 @@
 import { useState } from 'react';
 
 import Editor from '../Editor/Editor';
-import Preview from '..3/Preview/Preview';
+import Preview from '../Preview/Preview';
 
 import './Main.css';
 
 export default function Main() {
+  const [head, setHead] = useState('');
+  const [middle, setMiddle] = useState('');
+  const [bottom, setBottom] = useState('');
+
   return (
     <main>
       <Preview />
-      <Editor />
+      <Editor {...{ head, setHead, middle, setMiddle, bottom, setBottom }} />
     </main>
   );
 }
