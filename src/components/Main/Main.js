@@ -36,7 +36,13 @@ export default function Main() {
           setBottomCount,
         }}
       />
-      {!!phraseList && <p>{phraseList}</p>}
+      {!!phraseList && (
+        <p>
+          {phraseList.map((elem) => (
+            <p key={elem}>{elem}</p>
+          ))}
+        </p>
+      )}
       {!!headCount && <p>You have changed the head {headCount}</p>}
       {!!middleCount && <p>You have changed the middle {middleCount}</p>}
       {!!bottomCount && <p>You have changed the bottom {bottomCount}</p>}
