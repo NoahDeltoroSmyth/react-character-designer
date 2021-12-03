@@ -1,0 +1,29 @@
+.head {
+  margin: 5px;
+}
+
+.middle {
+  margin: 5px;
+}
+
+.bottom {
+  margin: 5px;
+}
+
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 150px;
+}
+
+.catch-phrase {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  margin: auto;
+  margin-top: 10px;
+  color: goldenrod;
+}

@@ -59,6 +59,7 @@ export default function Editor({
         </select>
       </div>
       <div className="catch-phrase">
+        <label>Add a catchphrase!</label>
         <input type="text" value={phrase} onChange={(e) => setPhrase(e.target.value)}></input>
         <button onClick={handleClick}>Add</button>
       </div>

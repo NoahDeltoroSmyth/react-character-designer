@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Editor from '../Editor/Editor';
 import Preview from '../Preview/Preview';
+import background from '../../../src/bart.jpeg';
 
 import './Main.css';
 
@@ -16,7 +17,7 @@ export default function Main() {
   const [bottomCount, setBottomCount] = useState(0);
 
   return (
-    <main>
+    <main style={{ backgroundImage: `url(${background})` }}>
       <Preview {...{ head, setHead, middle, setMiddle, bottom, setBottom }} />
       <Editor
         {...{
@@ -35,10 +36,10 @@ export default function Main() {
           setBottomCount,
         }}
       />
+      {!!phraseList && <p>{phraseList}</p>}
       {!!headCount && <p>You have changed the head {headCount}</p>}
       {!!middleCount && <p>You have changed the middle {middleCount}</p>}
       {!!bottomCount && <p>You have changed the bottom {bottomCount}</p>}
-      {!!phraseList && <p>{phraseList}</p>}
     </main>
   );
 }
